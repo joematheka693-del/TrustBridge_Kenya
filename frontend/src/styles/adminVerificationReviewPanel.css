@@ -1,0 +1,75 @@
+.admin-verification-panel {
+  position: sticky;
+  top: 92px;
+  align-self: start;
+  border: 1px solid rgba(96, 165, 250, 0.24);
+  border-radius: 24px;
+  padding: 1.25rem;
+  background: linear-gradient(145deg, rgba(15, 23, 42, 0.98), rgba(7, 47, 73, 0.9));
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.26);
+}
+
+.empty-review-panel {
+  text-align: center;
+  color: #cbd5e1;
+}
+
+.panel-kicker {
+  color: #67e8f9;
+  font-size: 0.76rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.admin-verification-panel h2 {
+  color: #f8fafc;
+  margin: 0.4rem 0;
+}
+
+.admin-verification-panel p,
+.admin-review-meta {
+  color: #cbd5e1;
+}
+
+.admin-review-meta {
+  display: grid;
+  gap: 0.5rem;
+  margin: 1rem 0;
+}
+
+.admin-review-field {
+  display: grid;
+  gap: 0.55rem;
+  color: #e2e8f0;
+  font-weight: 800;
+}
+
+.admin-review-field textarea {
+  border: 1px solid rgba(148, 163, 184, 0.24);
+  border-radius: 16px;
+  padding: 0.9rem;
+  background: rgba(2, 6, 23, 0.54);
+  color: #f8fafc;
+  outline: 0;
+  resize: vertical;
+}
+
+.admin-review-actions {
+  display: grid;
+  gap: 0.7rem;
+  margin-top: 1rem;
+}
+
+.admin-review-actions button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border: 1px solid rgba(96, 165, 250, 0.26);
+  border-radius: 14px;
+  min-height: 44px;
+  background: rgba(59, 130, 246, 0.13);
+  color: #e0f2fe;
+  font-weight: 900;
+}

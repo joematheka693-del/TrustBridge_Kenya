@@ -1,0 +1,184 @@
+.role-dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.admin-dashboard-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.role-dashboard-card {
+  min-height: 180px;
+  border: 1px solid var(--trust-border);
+  background: var(--trust-card);
+  box-shadow: var(--trust-shadow);
+  border-radius: 1.25rem;
+  padding: 1.4rem;
+}
+
+.role-dashboard-card svg {
+  color: var(--trust-cyan);
+}
+
+.admin-control-card svg {
+  color: var(--trust-warning);
+}
+
+.role-dashboard-card h3 {
+  margin: 1rem 0 0.5rem;
+  font-weight: 950;
+}
+
+.role-dashboard-card p {
+  color: var(--trust-muted);
+  line-height: 1.65;
+}
+
+@media (max-width: 1200px) {
+  .role-dashboard-grid,
+  .admin-dashboard-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 640px) {
+  .role-dashboard-grid,
+  .admin-dashboard-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.dashboard-action-card {
+  display: block;
+  color: var(--trust-text);
+  text-decoration: none;
+  transition: 0.2s ease;
+}
+
+.dashboard-action-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(80, 210, 255, 0.42);
+}
+
+.dashboard-card-topline {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.dashboard-card-topline span {
+  border: 1px solid var(--trust-border);
+  background: rgba(255, 255, 255, 0.045);
+  border-radius: 999px;
+  padding: 0.35rem 0.6rem;
+  color: var(--trust-muted);
+  font-size: 0.76rem;
+  font-weight: 850;
+}
+
+.dashboard-split-strip {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+}
+
+.dashboard-split-strip article,
+.admin-activity-board {
+  border: 1px solid var(--trust-border);
+  background: rgba(255, 255, 255, 0.035);
+  border-radius: 1.1rem;
+  padding: 1rem;
+}
+
+.dashboard-split-strip span {
+  color: var(--trust-muted);
+  font-weight: 800;
+  font-size: 0.84rem;
+}
+
+.dashboard-split-strip strong {
+  display: block;
+  font-size: 1.65rem;
+  font-weight: 950;
+  color: var(--trust-cyan);
+  margin: 0.3rem 0;
+}
+
+.client-strip strong {
+  color: #9af5c0;
+}
+
+.dashboard-split-strip p {
+  color: var(--trust-muted);
+  line-height: 1.55;
+  margin: 0;
+}
+
+.admin-activity-board {
+  margin-top: 1.25rem;
+}
+
+.admin-activity-list {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.admin-activity-list article {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  border: 1px solid var(--trust-border);
+  border-radius: 0.9rem;
+  padding: 0.85rem;
+  color: var(--trust-muted);
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.admin-activity-list svg {
+  color: var(--trust-warning);
+  flex: 0 0 auto;
+}
+
+@media (max-width: 900px) {
+  .dashboard-split-strip {
+    grid-template-columns: 1fr;
+  }
+}
+.role-dashboard-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.role-dashboard-card::after {
+  content: '';
+  position: absolute;
+  right: -3rem;
+  bottom: -3rem;
+  width: 8rem;
+  height: 8rem;
+  border-radius: 50%;
+  background: rgba(87, 215, 255, 0.055);
+}
+
+.role-dashboard-card > * {
+  position: relative;
+  z-index: 1;
+}
+
+.admin-dashboard-grid .role-dashboard-card {
+  min-height: 205px;
+}
+
+.admin-dashboard-grid .role-dashboard-card::after {
+  background: rgba(247, 201, 72, 0.06);
+}
+
+@media (max-width: 480px) {
+  .role-dashboard-card {
+    min-height: auto;
+    padding: 1.1rem;
+  }
+}

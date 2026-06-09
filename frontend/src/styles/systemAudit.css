@@ -1,0 +1,66 @@
+@import './adminShared.css';
+
+.audit-summary-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+}
+
+.audit-summary-card h2 {
+  margin: 0.3rem 0;
+  font-weight: 950;
+}
+
+.audit-summary-card p {
+  color: var(--trust-muted);
+  margin: 0;
+  line-height: 1.6;
+}
+
+.audit-summary-card strong {
+  font-size: 3rem;
+  color: var(--trust-cyan);
+}
+
+.audit-table-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+}
+
+.audit-recommendations {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.audit-recommendations h2 {
+  margin: 0.3rem 0;
+  font-weight: 950;
+}
+
+.audit-recommendations article {
+  border: 1px solid var(--trust-border);
+  border-radius: 0.95rem;
+  padding: 0.9rem;
+  color: var(--trust-muted);
+  background: rgba(255, 255, 255, 0.035);
+}
+
+@media (max-width: 1100px) {
+  .audit-table-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (max-width: 650px) {
+  .audit-summary-card { align-items: flex-start; flex-direction: column; }
+  .audit-table-grid { grid-template-columns: 1fr; }
+}
+
+.audit-summary-card small {
+  display: inline-flex;
+  margin-top: 0.55rem;
+  color: var(--muted-text);
+  font-weight: 800;
+}

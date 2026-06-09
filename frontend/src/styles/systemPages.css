@@ -1,0 +1,26 @@
+.system-page {
+  min-height: 65vh;
+  display: grid;
+  place-items: center;
+  padding: 4rem 1rem;
+}
+
+.system-card {
+  width: min(560px, 100%);
+  border: 1px solid var(--trust-border);
+  background: var(--trust-card);
+  box-shadow: var(--trust-shadow);
+  border-radius: 1.7rem;
+  padding: 2rem;
+  text-align: center;
+}
+
+.system-card h1 {
+  font-size: clamp(2.4rem, 8vw, 5rem);
+  font-weight: 950;
+  letter-spacing: -0.08em;
+}
+
+.system-card p {
+  color: var(--trust-muted);
+}

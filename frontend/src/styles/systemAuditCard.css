@@ -1,0 +1,32 @@
+.audit-table-card {
+  border: 1px solid var(--trust-border);
+  background: rgba(255, 255, 255, 0.035);
+  border-radius: 1.05rem;
+  padding: 1rem;
+}
+
+.audit-table-icon {
+  width: 42px;
+  height: 42px;
+  display: grid;
+  place-items: center;
+  border-radius: 1rem;
+  color: var(--trust-cyan);
+  background: rgba(87, 215, 255, 0.1);
+}
+
+.audit-table-card h3 {
+  margin: 0.85rem 0 0.35rem;
+  font-weight: 950;
+}
+
+.audit-table-card p {
+  margin: 0;
+  color: var(--trust-muted);
+}
+
+.audit-table-card strong {
+  display: block;
+  margin-top: 0.65rem;
+  color: var(--trust-green);
+}

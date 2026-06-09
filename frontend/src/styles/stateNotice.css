@@ -1,0 +1,72 @@
+.state-notice {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 1rem;
+  border: 1px solid var(--trust-border);
+  border-radius: 1.25rem;
+  background: rgba(255, 255, 255, 0.045);
+  padding: 1.25rem;
+}
+
+.state-notice-icon {
+  display: inline-flex;
+  width: 3rem;
+  height: 3rem;
+  align-items: center;
+  justify-content: center;
+  border-radius: 1rem;
+  background: rgba(87, 215, 255, 0.1);
+  color: var(--trust-cyan);
+}
+
+.state-notice-loading .state-notice-icon svg {
+  animation: trust-spin 0.9s linear infinite;
+}
+
+.state-notice-error .state-notice-icon {
+  color: #ffb4b4;
+  background: rgba(255, 80, 80, 0.1);
+}
+
+.state-notice-success .state-notice-icon {
+  color: #9af5c0;
+  background: rgba(55, 211, 153, 0.12);
+}
+
+.state-notice h2 {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 950;
+}
+
+.state-notice p {
+  margin: 0.35rem 0 0;
+  color: var(--trust-muted);
+  line-height: 1.6;
+}
+
+.state-notice-action {
+  margin-top: 1rem;
+}
+
+@keyframes trust-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (max-width: 560px) {
+  .state-notice {
+    grid-template-columns: 1fr;
+  }
+}
+
+.state-notice-warning .state-notice-icon {
+  color: #ffd48a;
+  background: rgba(255, 194, 102, 0.12);
+}
+
+.state-notice-info .state-notice-icon {
+  color: var(--trust-cyan);
+  background: rgba(87, 215, 255, 0.1);
+}

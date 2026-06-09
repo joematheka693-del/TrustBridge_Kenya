@@ -1,0 +1,43 @@
+.job-filter-bar {
+  display: grid;
+  grid-template-columns: 1fr 260px;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.job-search-box,
+.job-category-filter {
+  min-height: 56px;
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  background: rgba(7, 17, 35, 0.92);
+  border: 1px solid rgba(93, 188, 252, 0.18);
+  border-radius: 18px;
+  padding: 0 1rem;
+  color: #7dd3fc;
+}
+
+.job-search-box input,
+.job-category-filter select {
+  width: 100%;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  color: #edf8ff;
+}
+
+.job-search-box input::placeholder {
+  color: #7895b3;
+}
+
+.job-category-filter select option {
+  background: #071123;
+  color: #edf8ff;
+}
+
+@media (max-width: 768px) {
+  .job-filter-bar {
+    grid-template-columns: 1fr;
+  }
+}

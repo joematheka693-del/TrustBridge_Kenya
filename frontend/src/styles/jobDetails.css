@@ -1,0 +1,137 @@
+.job-details-page {
+  padding: 2.5rem 0 4rem;
+}
+
+.job-details-shell,
+.job-details-missing {
+  color: #d9e8f7;
+}
+
+.job-back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: #7dd3fc;
+  text-decoration: none;
+  font-weight: 800;
+  margin-bottom: 1.2rem;
+}
+
+.job-details-grid {
+  display: grid;
+  grid-template-columns: 1fr 330px;
+  gap: 1.2rem;
+}
+
+.job-main-panel,
+.job-side-panel {
+  background: rgba(7, 17, 35, 0.94);
+  border: 1px solid rgba(93, 188, 252, 0.18);
+  border-radius: 28px;
+  padding: 1.4rem;
+}
+
+.job-details-kicker {
+  color: #7dd3fc;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+}
+
+.job-main-panel h1 {
+  color: #ffffff;
+  font-size: clamp(2rem, 4vw, 3.6rem);
+  margin: 0.6rem 0;
+}
+
+.job-details-client,
+.job-details-description {
+  color: #b9cce2;
+  line-height: 1.7;
+}
+
+.job-details-meta-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.8rem;
+  margin: 1.2rem 0;
+}
+
+.job-details-meta-grid span {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 16px;
+  padding: 0.8rem;
+}
+
+.job-details-section {
+  margin-top: 1.4rem;
+}
+
+.job-details-section h2,
+.job-side-panel h2 {
+  color: #ffffff;
+  font-size: 1.25rem;
+}
+
+.job-details-skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.job-details-skills span {
+  background: rgba(56, 189, 248, 0.12);
+  color: #dff6ff;
+  border: 1px solid rgba(56, 189, 248, 0.18);
+  padding: 0.42rem 0.75rem;
+  border-radius: 999px;
+}
+
+.job-safe-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 0.65rem;
+}
+
+.job-safe-list li {
+  display: flex;
+  gap: 0.5rem;
+  color: #b9cce2;
+}
+
+.job-side-panel {
+  height: fit-content;
+  position: sticky;
+  top: 100px;
+}
+
+.job-action-primary,
+.job-action-secondary {
+  width: 100%;
+  margin-top: 1rem;
+}
+
+.job-action-secondary {
+  border: 1px solid rgba(125, 211, 252, 0.35);
+  color: #bfefff;
+}
+
+@media (max-width: 900px) {
+  .job-details-grid,
+  .job-details-meta-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .job-side-panel {
+    position: static;
+  }
+}

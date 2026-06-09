@@ -1,0 +1,18 @@
+.empty-state-card {
+  background: rgba(7, 17, 35, 0.92);
+  border: 1px solid rgba(93, 188, 252, 0.18);
+  border-radius: 24px;
+  padding: 3rem 1.5rem;
+  text-align: center;
+  color: #b9cce2;
+}
+
+.empty-state-card svg {
+  color: #7dd3fc;
+  margin-bottom: 0.8rem;
+}
+
+.empty-state-card h2 {
+  color: #ffffff;
+  font-size: 1.35rem;
+}

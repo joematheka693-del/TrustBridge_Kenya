@@ -1,0 +1,52 @@
+.admin-table-shell,
+.admin-users-toolbar,
+.moderation-panel,
+.audit-summary-card,
+.audit-recommendations,
+.admin-activity-page-list {
+  border: 1px solid var(--trust-border);
+  background: rgba(255, 255, 255, 0.035);
+  border-radius: 1.25rem;
+  padding: 1.2rem;
+  box-shadow: var(--trust-shadow);
+}
+
+.status-pill {
+  display: inline-flex;
+  align-items: center;
+  width: fit-content;
+  border-radius: 999px;
+  padding: 0.35rem 0.7rem;
+  border: 1px solid var(--trust-border);
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--trust-muted);
+  font-size: 0.76rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.status-active,
+.status-approved,
+.status-accepted,
+.status-open {
+  color: var(--trust-green);
+  background: rgba(55, 211, 153, 0.11);
+  border-color: rgba(55, 211, 153, 0.28);
+}
+
+.status-pending,
+.status-review,
+.status-reviewing,
+.status-shortlisted {
+  color: var(--trust-warning);
+  background: rgba(247, 201, 72, 0.1);
+  border-color: rgba(247, 201, 72, 0.28);
+}
+
+.status-rejected,
+.status-suspended {
+  color: #ff9b9b;
+  background: rgba(255, 91, 91, 0.11);
+  border-color: rgba(255, 91, 91, 0.28);
+}

@@ -1,0 +1,108 @@
+.trust-theme-dropdown {
+  display: inline-flex;
+}
+
+.trust-theme-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  border: 1px solid var(--trust-border);
+  border-radius: 999px;
+  color: var(--trust-text);
+  background: var(--trust-glass);
+  font-weight: 800;
+  min-height: 2.55rem;
+  padding-inline: 0.9rem;
+}
+
+.trust-theme-btn:hover,
+.trust-theme-btn:focus {
+  color: var(--trust-text);
+  border-color: rgba(87, 215, 255, 0.5);
+  background: rgba(255, 255, 255, 0.075);
+}
+
+.trust-theme-menu {
+  min-width: 17rem;
+  border: 1px solid var(--trust-border);
+  border-radius: 1.1rem;
+  background: var(--trust-card-strong, var(--trust-card));
+  box-shadow: var(--trust-shadow);
+  padding: 0.55rem;
+}
+
+.trust-theme-menu-title {
+  color: var(--trust-muted);
+  font-size: 0.78rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.trust-theme-option {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 0.7rem;
+  min-height: 3.35rem;
+  border-radius: 0.9rem;
+  color: var(--trust-text);
+}
+
+.trust-theme-option:hover,
+.trust-theme-option:focus {
+  color: var(--trust-text);
+  background: rgba(255, 255, 255, 0.075);
+}
+
+.trust-theme-dot {
+  width: 1rem;
+  height: 1rem;
+  border-radius: 999px;
+  box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.06);
+}
+
+.trust-theme-dot-trust-blue {
+  background: linear-gradient(135deg, #2f80ed, #57d7ff);
+}
+
+.trust-theme-dot-frost-system {
+  background: linear-gradient(135deg, #7bbcff, #9af0ff);
+}
+
+.trust-theme-dot-emerald-secure {
+  background: linear-gradient(135deg, #2dd4bf, #7cffcb);
+}
+
+.trust-theme-dot-midnight-admin {
+  background: linear-gradient(135deg, #8b5cf6, #60a5fa);
+}
+
+.trust-theme-copy {
+  display: grid;
+  gap: 0.05rem;
+}
+
+.trust-theme-copy strong {
+  font-size: 0.92rem;
+}
+
+.trust-theme-copy small {
+  color: var(--trust-muted);
+  font-weight: 700;
+}
+
+.trust-theme-check {
+  color: var(--trust-cyan);
+}
+
+@media (max-width: 991px) {
+  .trust-theme-dropdown,
+  .trust-theme-btn {
+    width: 100%;
+  }
+
+  .trust-theme-btn {
+    justify-content: center;
+  }
+}

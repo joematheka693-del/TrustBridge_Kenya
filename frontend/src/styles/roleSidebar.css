@@ -1,0 +1,110 @@
+.role-sidebar {
+  position: sticky;
+  top: 5.75rem;
+  align-self: start;
+  border: 1px solid var(--trust-border);
+  background: rgba(10, 24, 42, 0.94);
+  box-shadow: var(--trust-shadow);
+  border-radius: 1.5rem;
+  padding: 1rem;
+  max-height: calc(100vh - 6.5rem);
+  overflow: auto;
+  scrollbar-width: thin;
+}
+
+.sidebar-profile-card {
+  border: 1px solid var(--trust-border);
+  border-radius: 1.25rem;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 1rem;
+  margin-bottom: 0.8rem;
+}
+
+.sidebar-role-pill {
+  display: inline-flex;
+  width: fit-content;
+  padding: 0.28rem 0.65rem;
+  border-radius: 999px;
+  background: rgba(87, 215, 255, 0.1);
+  color: var(--trust-cyan);
+  font-size: 0.72rem;
+  font-weight: 950;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.sidebar-profile-card h2 {
+  margin: 0.7rem 0 0.3rem;
+  font-size: 1.1rem;
+  font-weight: 950;
+}
+
+.sidebar-profile-card p {
+  margin: 0;
+  color: var(--trust-muted);
+  font-size: 0.88rem;
+  overflow-wrap: anywhere;
+}
+
+.sidebar-workspace-note {
+  margin-top: 0.8rem;
+  border-top: 1px solid var(--trust-border);
+  padding-top: 0.75rem;
+  color: var(--trust-muted);
+  font-size: 0.8rem;
+  font-weight: 800;
+}
+
+.sidebar-menu {
+  display: grid;
+  gap: 0.4rem;
+}
+
+.sidebar-link {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  color: var(--trust-muted);
+  border: 1px solid transparent;
+  border-radius: 0.95rem;
+  padding: 0.8rem 0.85rem;
+  font-weight: 850;
+  transition: 0.18s ease;
+}
+
+.sidebar-link:hover,
+.sidebar-link.active {
+  border-color: rgba(87, 215, 255, 0.24);
+  background: rgba(87, 215, 255, 0.08);
+  color: var(--trust-cyan);
+  transform: translateX(2px);
+}
+
+.role-sidebar-admin .sidebar-role-pill {
+  background: rgba(247, 201, 72, 0.12);
+  color: var(--trust-warning);
+}
+
+.role-sidebar-admin .sidebar-link.active,
+.role-sidebar-admin .sidebar-link:hover {
+  border-color: rgba(247, 201, 72, 0.25);
+  background: rgba(247, 201, 72, 0.08);
+  color: var(--trust-warning);
+}
+
+@media (max-width: 992px) {
+  .role-sidebar {
+    position: static;
+    max-height: none;
+  }
+
+  .sidebar-menu {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 620px) {
+  .sidebar-menu {
+    grid-template-columns: 1fr;
+  }
+}

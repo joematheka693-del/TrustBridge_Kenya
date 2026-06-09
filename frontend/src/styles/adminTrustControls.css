@@ -1,0 +1,58 @@
+.admin-command-header {
+  border-color: rgba(255, 193, 7, 0.22);
+}
+
+.admin-trust-grid {
+  display: grid;
+  grid-template-columns: 380px 1fr;
+  gap: 1.1rem;
+}
+
+.admin-trust-form,
+.admin-trust-preview {
+  border: 1px solid var(--trust-border);
+  background: var(--trust-card);
+  border-radius: 1.25rem;
+  padding: 1.15rem;
+  box-shadow: var(--trust-shadow);
+}
+
+.admin-trust-form h2 {
+  font-weight: 950;
+  margin-bottom: 1rem;
+}
+
+.admin-trust-form label {
+  display: grid;
+  gap: 0.45rem;
+  color: var(--trust-muted);
+  font-weight: 750;
+  margin-bottom: 0.9rem;
+}
+
+.admin-trust-form input,
+.admin-trust-form select,
+.admin-trust-form textarea {
+  width: 100%;
+  border: 1px solid var(--trust-border);
+  border-radius: 0.9rem;
+  padding: 0.75rem 0.85rem;
+  background: rgba(5, 12, 23, 0.9);
+  color: var(--trust-text);
+}
+
+.admin-trust-form textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.admin-trust-event-list {
+  display: grid;
+  gap: 1rem;
+}
+
+@media (max-width: 1000px) {
+  .admin-trust-grid {
+    grid-template-columns: 1fr;
+  }
+}

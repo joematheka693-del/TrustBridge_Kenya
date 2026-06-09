@@ -1,0 +1,47 @@
+.status-action-panel {
+  border: 1px solid rgba(125, 211, 252, 0.18);
+  border-radius: 26px;
+  padding: 1.3rem;
+  background: rgba(8, 13, 31, 0.92);
+  height: fit-content;
+}
+
+.status-action-panel h2 {
+  color: #f8fafc;
+  margin: 0.3rem 0;
+  text-transform: capitalize;
+}
+
+.status-action-panel p {
+  color: #cbd5e1;
+  line-height: 1.6;
+}
+
+.status-action-list {
+  display: grid;
+  gap: 0.65rem;
+  margin-top: 1rem;
+}
+
+.status-action-list button {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  border: 1px solid rgba(148, 163, 184, 0.16);
+  background: rgba(15, 23, 42, 0.88);
+  color: #dbeafe;
+  border-radius: 14px;
+  padding: 0.78rem 0.9rem;
+  text-transform: capitalize;
+  font-weight: 800;
+}
+
+.status-action-list button.active {
+  border-color: rgba(56, 189, 248, 0.45);
+  background: rgba(14, 165, 233, 0.18);
+}
+
+.status-action-list button:disabled {
+  cursor: not-allowed;
+  opacity: 0.68;
+}

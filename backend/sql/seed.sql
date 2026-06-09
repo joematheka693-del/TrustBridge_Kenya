@@ -1,0 +1,258 @@
+USE trustbridge_kenya;
+
+INSERT INTO users (name, email, password_hash, role, status) VALUES
+('TrustBridge Admin', 'admin@trustbridge.co.ke', 'pbkdf2:sha256:260000$28e47d99ba9f1dd5$b631c55ea00097ac17c40425928741b8b01dc8ff554a4475db57e3df2fae227b', 'admin', 'active'),
+('Demo Client', 'client@trustbridge.co.ke', 'pbkdf2:sha256:260000$1a52b624248d002a$300a784634a226092efddfc04ae8fca59fa48d175ad58e7ca5efbb0a139d266a', 'client', 'active'),
+('Demo Freelancer', 'freelancer@trustbridge.co.ke', 'pbkdf2:sha256:260000$ce473b17865a492f$8ccf79dd19da05176d55efa979c8f03eb753ecc459d6a587f284f0f6da1e404a', 'freelancer', 'active'),
+('Demo Member', 'member@trustbridge.co.ke', 'pbkdf2:sha256:260000$53d33057e144ac64$d935e82f1ab105ed905f18d057dc6716d0dce58907840b24bb7481519d320264', 'member', 'active')
+ON DUPLICATE KEY UPDATE
+  name = VALUES(name),
+  role = VALUES(role),
+  status = VALUES(status);
+
+
+DELETE FROM jobs WHERE title IN (
+  'React dashboard for small shop',
+  'Flask API cleanup and MySQL connection',
+  'Portfolio landing page upgrade',
+  'Full stack jobs board MVP'
+);
+
+INSERT INTO jobs (owner_id, title, description, category, location, budget, timeline, experience, trust_level, skills, status) VALUES
+((SELECT user_id FROM users WHERE email = 'client@trustbridge.co.ke'), 'React dashboard for small shop', 'Build a responsive React dashboard with Bootstrap cards, analytics blocks, and basic admin pages for a small Kenyan shop.', 'Frontend Development', 'Remote, Kenya', 'KES 18,000', '10 days', 'Beginner to intermediate', 'Verified client preview', 'React, Bootstrap, CSS, Axios', 'open'),
+((SELECT user_id FROM users WHERE email = 'client@trustbridge.co.ke'), 'Flask API cleanup and MySQL connection', 'Clean a Flask backend, organize routes, connect MySQL safely, and prepare environment files for deployment.', 'Backend Development', 'Nairobi or Remote', 'KES 25,000', '14 days', 'Intermediate', 'Verified client preview', 'Flask, MySQL, JWT, REST API', 'open'),
+((SELECT user_id FROM users WHERE email = 'admin@trustbridge.co.ke'), 'Portfolio landing page upgrade', 'Upgrade a freelancer portfolio with a modern trust-focused layout, service cards, testimonials, and a contact section.', 'Design and Branding', 'Remote', 'KES 12,000', '7 days', 'Beginner friendly', 'Admin posted demo', 'HTML, CSS, Bootstrap, React', 'open'),
+((SELECT user_id FROM users WHERE email = 'client@trustbridge.co.ke'), 'Full stack jobs board MVP', 'Create a small jobs board MVP with authentication, job cards, posting form, and protected dashboard routes.', 'Full Stack Development', 'Remote, Kenya', 'KES 40,000', '21 days', 'Intermediate to advanced', 'Verified client preview', 'React, Flask, MySQL, JWT, Bootstrap', 'under_review');
+
+INSERT INTO users (name, email, password_hash, role, status) VALUES
+('Amina Otieno', 'amina.freelance@trustbridge.co.ke', 'pbkdf2:sha256:260000$ce473b17865a492f$8ccf79dd19da05176d55efa979c8f03eb753ecc459d6a587f284f0f6da1e404a', 'freelancer', 'active'),
+('Brian Mwangi', 'brian.backend@trustbridge.co.ke', 'pbkdf2:sha256:260000$ce473b17865a492f$8ccf79dd19da05176d55efa979c8f03eb753ecc459d6a587f284f0f6da1e404a', 'freelancer', 'active'),
+('Grace Wanjiku', 'grace.design@trustbridge.co.ke', 'pbkdf2:sha256:260000$ce473b17865a492f$8ccf79dd19da05176d55efa979c8f03eb753ecc459d6a587f284f0f6da1e404a', 'freelancer', 'active')
+ON DUPLICATE KEY UPDATE
+  name = VALUES(name),
+  role = VALUES(role),
+  status = VALUES(status);
+
+INSERT INTO talent_profiles (user_id, name, email, category, skill_level, location, rate, bio, trust_score, completed_jobs, availability, verification, status) VALUES
+((SELECT user_id FROM users WHERE email = 'freelancer@trustbridge.co.ke'), 'Demo Freelancer', 'freelancer@trustbridge.co.ke', 'Full Stack Developer', 'Beginner+', 'Machakos, Kenya', 'KES 2,000 / project day', 'Builds beginner-friendly React, Flask, MySQL, and Bootstrap projects with clear dashboards and clean folder structures.', 76, 6, 'Open to remote projects', 'reviewed', 'active'),
+((SELECT user_id FROM users WHERE email = 'amina.freelance@trustbridge.co.ke'), 'Amina Otieno', 'amina.freelance@trustbridge.co.ke', 'Frontend Developer', 'Intermediate', 'Nairobi, Kenya', 'KES 2,500 / project day', 'Builds responsive React interfaces for small businesses, portfolio websites, dashboards, and job marketplace pages.', 86, 14, 'Available this week', 'verified', 'active'),
+((SELECT user_id FROM users WHERE email = 'brian.backend@trustbridge.co.ke'), 'Brian Mwangi', 'brian.backend@trustbridge.co.ke', 'Backend Developer', 'Beginner+', 'Machakos, Kenya', 'KES 1,800 / project day', 'Creates Flask APIs, MySQL schemas, authentication routes, and admin backend tools for early-stage web apps.', 78, 8, 'Open to part-time work', 'reviewed', 'active'),
+((SELECT user_id FROM users WHERE email = 'grace.design@trustbridge.co.ke'), 'Grace Wanjiku', 'grace.design@trustbridge.co.ke', 'UI Designer', 'Intermediate', 'Kiambu, Kenya', 'KES 2,200 / project day', 'Designs clean fintech, marketplace, and professional dashboard layouts with strong mobile-first page structure.', 82, 11, 'Available for fixed projects', 'verified', 'active')
+ON DUPLICATE KEY UPDATE
+  name = VALUES(name),
+  email = VALUES(email),
+  category = VALUES(category),
+  skill_level = VALUES(skill_level),
+  location = VALUES(location),
+  rate = VALUES(rate),
+  bio = VALUES(bio),
+  trust_score = VALUES(trust_score),
+  completed_jobs = VALUES(completed_jobs),
+  availability = VALUES(availability),
+  verification = VALUES(verification),
+  status = VALUES(status);
+
+DELETE FROM profile_skills WHERE profile_id IN (SELECT profile_id FROM talent_profiles WHERE email IN ('freelancer@trustbridge.co.ke', 'amina.freelance@trustbridge.co.ke', 'brian.backend@trustbridge.co.ke', 'grace.design@trustbridge.co.ke'));
+
+INSERT INTO profile_skills (profile_id, skill_name) VALUES
+((SELECT profile_id FROM talent_profiles WHERE email = 'freelancer@trustbridge.co.ke'), 'React'),
+((SELECT profile_id FROM talent_profiles WHERE email = 'freelancer@trustbridge.co.ke'), 'Flask'),
+((SELECT profile_id FROM talent_profiles WHERE email = 'freelancer@trustbridge.co.ke'), 'MySQL'),
+((SELECT profile_id FROM talent_profiles WHERE email = 'freelancer@trustbridge.co.ke'), 'Bootstrap'),
+((SELECT profile_id FROM talent_profiles WHERE email = 'amina.freelance@trustbridge.co.ke'), 'React'),
+((SELECT profile_id FROM talent_profiles WHERE email = 'amina.freelance@trustbridge.co.ke'), 'Bootstrap'),
+((SELECT profile_id FROM talent_profiles WHERE email = 'amina.freelance@trustbridge.co.ke'), 'JavaScript'),
+((SELECT profile_id FROM talent_profiles WHERE email = 'amina.freelance@trustbridge.co.ke'), 'Dashboards'),
+((SELECT profile_id FROM talent_profiles WHERE email = 'brian.backend@trustbridge.co.ke'), 'Flask'),
+((SELECT profile_id FROM talent_profiles WHERE email = 'brian.backend@trustbridge.co.ke'), 'MySQL'),
+((SELECT profile_id FROM talent_profiles WHERE email = 'brian.backend@trustbridge.co.ke'), 'JWT Auth'),
+((SELECT profile_id FROM talent_profiles WHERE email = 'brian.backend@trustbridge.co.ke'), 'REST APIs'),
+((SELECT profile_id FROM talent_profiles WHERE email = 'grace.design@trustbridge.co.ke'), 'UI Design'),
+((SELECT profile_id FROM talent_profiles WHERE email = 'grace.design@trustbridge.co.ke'), 'Figma'),
+((SELECT profile_id FROM talent_profiles WHERE email = 'grace.design@trustbridge.co.ke'), 'Design Systems'),
+((SELECT profile_id FROM talent_profiles WHERE email = 'grace.design@trustbridge.co.ke'), 'Responsive Layout')
+ON DUPLICATE KEY UPDATE skill_name = VALUES(skill_name);
+
+DELETE FROM portfolio_links WHERE profile_id IN (SELECT profile_id FROM talent_profiles WHERE email IN ('freelancer@trustbridge.co.ke', 'amina.freelance@trustbridge.co.ke', 'brian.backend@trustbridge.co.ke', 'grace.design@trustbridge.co.ke'));
+
+INSERT INTO portfolio_links (profile_id, label, url) VALUES
+((SELECT profile_id FROM talent_profiles WHERE email = 'freelancer@trustbridge.co.ke'), 'TrustBridge project samples', 'https://example.com/trustbridge-demo'),
+((SELECT profile_id FROM talent_profiles WHERE email = 'amina.freelance@trustbridge.co.ke'), 'Portfolio website', 'https://example.com/amina-portfolio'),
+((SELECT profile_id FROM talent_profiles WHERE email = 'amina.freelance@trustbridge.co.ke'), 'GitHub projects', 'https://github.com/example-amina'),
+((SELECT profile_id FROM talent_profiles WHERE email = 'brian.backend@trustbridge.co.ke'), 'API samples', 'https://example.com/brian-api'),
+((SELECT profile_id FROM talent_profiles WHERE email = 'grace.design@trustbridge.co.ke'), 'Design case studies', 'https://example.com/grace-designs');
+
+DELETE FROM applications;
+
+INSERT INTO applications (type, source_id, source_title, applicant_user_id, applicant_name, applicant_email, owner_user_id, owner_name, owner_email, message, budget, timeline, status) VALUES
+('job-application',
+ (SELECT job_id FROM jobs WHERE title = 'React dashboard for small shop' ORDER BY job_id LIMIT 1),
+ 'React dashboard for small shop',
+ (SELECT user_id FROM users WHERE email = 'freelancer@trustbridge.co.ke'),
+ 'Demo Freelancer',
+ 'freelancer@trustbridge.co.ke',
+ (SELECT user_id FROM users WHERE email = 'client@trustbridge.co.ke'),
+ 'Demo Client',
+ 'client@trustbridge.co.ke',
+ 'I can build the React dashboard with Bootstrap cards, clean route separation, and a stable frontend structure.',
+ 'KES 18,000',
+ '10 days',
+ 'shortlisted'),
+('job-application',
+ (SELECT job_id FROM jobs WHERE title = 'Flask API cleanup and MySQL connection' ORDER BY job_id LIMIT 1),
+ 'Flask API cleanup and MySQL connection',
+ (SELECT user_id FROM users WHERE email = 'brian.backend@trustbridge.co.ke'),
+ 'Brian Mwangi',
+ 'brian.backend@trustbridge.co.ke',
+ (SELECT user_id FROM users WHERE email = 'client@trustbridge.co.ke'),
+ 'Demo Client',
+ 'client@trustbridge.co.ke',
+ 'I can organize the Flask API into blueprints, connect MySQL, and prepare deployment-friendly environment files.',
+ 'KES 25,000',
+ '14 days',
+ 'pending'),
+('talent-invite',
+ (SELECT profile_id FROM talent_profiles WHERE email = 'amina.freelance@trustbridge.co.ke'),
+ 'Invite: Amina Otieno',
+ (SELECT user_id FROM users WHERE email = 'client@trustbridge.co.ke'),
+ 'Demo Client',
+ 'client@trustbridge.co.ke',
+ (SELECT user_id FROM users WHERE email = 'amina.freelance@trustbridge.co.ke'),
+ 'Amina Otieno',
+ 'amina.freelance@trustbridge.co.ke',
+ 'We would like to invite you to build a responsive landing page and dashboard interface for a verified client project.',
+ 'KES 25,000',
+ '10 days',
+ 'pending'),
+('talent-invite',
+ (SELECT profile_id FROM talent_profiles WHERE email = 'grace.design@trustbridge.co.ke'),
+ 'Invite: Grace Wanjiku',
+ (SELECT user_id FROM users WHERE email = 'client@trustbridge.co.ke'),
+ 'Demo Client',
+ 'client@trustbridge.co.ke',
+ (SELECT user_id FROM users WHERE email = 'grace.design@trustbridge.co.ke'),
+ 'Grace Wanjiku',
+ 'grace.design@trustbridge.co.ke',
+ 'We need help improving the TrustBridge dashboard UI with cleaner cards, spacing, and mobile-friendly layout.',
+ 'KES 12,000',
+ '2 weeks',
+ 'accepted');
+
+DELETE FROM verification_requests;
+
+INSERT INTO verification_requests (user_id, full_name, email, role, evidence_type, evidence_link, notes, review_notes, status, reviewed_by, reviewed_at) VALUES
+((SELECT user_id FROM users WHERE email = 'freelancer@trustbridge.co.ke'),
+ 'Demo Freelancer',
+ 'freelancer@trustbridge.co.ke',
+ 'freelancer',
+ 'GitHub link',
+ 'https://github.com/example-demo-freelancer',
+ 'Please review my React, Flask, and MySQL project samples for freelancer verification.',
+ 'Code samples are clear enough for beginner freelancer verification.',
+ 'approved',
+ (SELECT user_id FROM users WHERE email = 'admin@trustbridge.co.ke'),
+ CURRENT_TIMESTAMP),
+((SELECT user_id FROM users WHERE email = 'client@trustbridge.co.ke'),
+ 'Demo Client',
+ 'client@trustbridge.co.ke',
+ 'client',
+ 'Business profile',
+ 'https://example.com/demo-client-business',
+ 'This is our public business profile and project hiring proof for client verification.',
+ '',
+ 'pending',
+ NULL,
+ NULL),
+((SELECT user_id FROM users WHERE email = 'amina.freelance@trustbridge.co.ke'),
+ 'Amina Otieno',
+ 'amina.freelance@trustbridge.co.ke',
+ 'freelancer',
+ 'Portfolio link',
+ 'https://example.com/amina-portfolio',
+ 'Review my frontend dashboard portfolio and Bootstrap interface samples.',
+ 'Strong portfolio and consistent project examples.',
+ 'approved',
+ (SELECT user_id FROM users WHERE email = 'admin@trustbridge.co.ke'),
+ CURRENT_TIMESTAMP),
+((SELECT user_id FROM users WHERE email = 'brian.backend@trustbridge.co.ke'),
+ 'Brian Mwangi',
+ 'brian.backend@trustbridge.co.ke',
+ 'freelancer',
+ 'Previous work proof',
+ 'https://example.com/brian-api',
+ 'Review my Flask API and MySQL backend samples.',
+ 'Please add at least one deployed API link before approval.',
+ 'more_evidence_needed',
+ (SELECT user_id FROM users WHERE email = 'admin@trustbridge.co.ke'),
+ CURRENT_TIMESTAMP),
+((SELECT user_id FROM users WHERE email = 'grace.design@trustbridge.co.ke'),
+ 'Grace Wanjiku',
+ 'grace.design@trustbridge.co.ke',
+ 'freelancer',
+ 'Certificate link',
+ 'https://example.com/grace-design-certificate',
+ 'Review my UI design certificate and public case study proof.',
+ 'Certificate link needs clearer owner identity.',
+ 'rejected',
+ (SELECT user_id FROM users WHERE email = 'admin@trustbridge.co.ke'),
+ CURRENT_TIMESTAMP);
+
+DELETE FROM trust_score_events;
+
+INSERT INTO trust_score_events (user_id, event_type, points, reason, created_by, source_type, source_id) VALUES
+((SELECT user_id FROM users WHERE email = 'freelancer@trustbridge.co.ke'),
+ 'approved_verification',
+ 15,
+ 'GitHub evidence approved by admin review.',
+ (SELECT user_id FROM users WHERE email = 'admin@trustbridge.co.ke'),
+ 'verification_request',
+ (SELECT request_id FROM verification_requests WHERE email = 'freelancer@trustbridge.co.ke' LIMIT 1)),
+((SELECT user_id FROM users WHERE email = 'freelancer@trustbridge.co.ke'),
+ 'talent_profile_completed',
+ 8,
+ 'Talent profile contains category, bio, skills, rate, and portfolio links.',
+ (SELECT user_id FROM users WHERE email = 'admin@trustbridge.co.ke'),
+ 'talent_profile',
+ (SELECT profile_id FROM talent_profiles WHERE email = 'freelancer@trustbridge.co.ke' LIMIT 1)),
+((SELECT user_id FROM users WHERE email = 'client@trustbridge.co.ke'),
+ 'job_posted',
+ 2,
+ 'Client posted a complete job with budget, timeline, and required skills.',
+ (SELECT user_id FROM users WHERE email = 'admin@trustbridge.co.ke'),
+ 'job',
+ (SELECT job_id FROM jobs WHERE owner_id = (SELECT user_id FROM users WHERE email = 'client@trustbridge.co.ke') LIMIT 1)),
+((SELECT user_id FROM users WHERE email = 'member@trustbridge.co.ke'),
+ 'application_submitted',
+ 2,
+ 'Member submitted a clear beginner job application.',
+ (SELECT user_id FROM users WHERE email = 'admin@trustbridge.co.ke'),
+ 'application',
+ (SELECT application_id FROM applications WHERE applicant_email = 'member@trustbridge.co.ke' LIMIT 1)),
+((SELECT user_id FROM users WHERE email = 'amina.freelance@trustbridge.co.ke'),
+ 'approved_verification',
+ 15,
+ 'Portfolio evidence approved by admin review.',
+ (SELECT user_id FROM users WHERE email = 'admin@trustbridge.co.ke'),
+ 'verification_request',
+ (SELECT request_id FROM verification_requests WHERE email = 'amina.freelance@trustbridge.co.ke' LIMIT 1)),
+((SELECT user_id FROM users WHERE email = 'brian.backend@trustbridge.co.ke'),
+ 'more_evidence_needed',
+ -3,
+ 'Backend proof needs one deployed API link before approval.',
+ (SELECT user_id FROM users WHERE email = 'admin@trustbridge.co.ke'),
+ 'verification_request',
+ (SELECT request_id FROM verification_requests WHERE email = 'brian.backend@trustbridge.co.ke' LIMIT 1)),
+((SELECT user_id FROM users WHERE email = 'grace.design@trustbridge.co.ke'),
+ 'rejected_verification',
+ -10,
+ 'Certificate link needs clearer owner identity before verification can be trusted.',
+ (SELECT user_id FROM users WHERE email = 'admin@trustbridge.co.ke'),
+ 'verification_request',
+ (SELECT request_id FROM verification_requests WHERE email = 'grace.design@trustbridge.co.ke' LIMIT 1)),
+((SELECT user_id FROM users WHERE email = 'amina.freelance@trustbridge.co.ke'),
+ 'manual_admin_event',
+ 6,
+ 'Admin added trust points for consistent delivery proof and clear communication.',
+ (SELECT user_id FROM users WHERE email = 'admin@trustbridge.co.ke'),
+ 'admin_manual',
+ NULL);

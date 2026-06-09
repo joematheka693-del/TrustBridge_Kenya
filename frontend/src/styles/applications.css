@@ -1,0 +1,53 @@
+.applications-page {
+  background: radial-gradient(circle at top right, rgba(14, 165, 233, 0.16), transparent 34%), #020617;
+}
+
+.applications-hero {
+  display: flex;
+  justify-content: space-between;
+  gap: 1.4rem;
+  align-items: flex-end;
+  padding-top: 2rem;
+  padding-bottom: 1.25rem;
+}
+
+.applications-hero h1 {
+  color: #f8fafc;
+  font-size: clamp(2rem, 5vw, 3.4rem);
+  max-width: 760px;
+  margin: 0.5rem 0;
+}
+
+.applications-hero p {
+  color: #cbd5e1;
+  max-width: 760px;
+  line-height: 1.7;
+  margin: 0;
+}
+
+.applications-actions {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.applications-content {
+  padding-bottom: 3rem;
+}
+
+.applications-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+@media (max-width: 920px) {
+  .applications-hero {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .applications-grid {
+    grid-template-columns: 1fr;
+  }
+}

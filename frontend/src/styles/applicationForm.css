@@ -1,0 +1,71 @@
+.application-form-page {
+  background: radial-gradient(circle at top right, rgba(56, 189, 248, 0.14), transparent 33%), #020617;
+}
+
+.application-form-shell,
+.application-form-denied {
+  padding-top: 2rem;
+  padding-bottom: 3rem;
+}
+
+.application-form-heading {
+  max-width: 760px;
+  margin-bottom: 1.25rem;
+}
+
+.application-form-heading h1,
+.application-form-denied h1 {
+  color: #f8fafc;
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  margin: 0.5rem 0;
+}
+
+.application-form-heading p,
+.application-form-denied p {
+  color: #cbd5e1;
+  line-height: 1.7;
+}
+
+.application-form-card,
+.application-form-denied {
+  border: 1px solid rgba(148, 163, 184, 0.18);
+  border-radius: 28px;
+  padding: 1.4rem;
+  background: rgba(15, 23, 42, 0.9);
+  box-shadow: 0 22px 60px rgba(2, 6, 23, 0.25);
+}
+
+.form-grid-two {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.application-form-card label {
+  display: grid;
+  gap: 0.5rem;
+  color: #dbeafe;
+  font-weight: 800;
+  margin-bottom: 1rem;
+}
+
+.application-form-card input,
+.application-form-card textarea {
+  width: 100%;
+  border: 1px solid rgba(148, 163, 184, 0.18);
+  border-radius: 16px;
+  background: rgba(2, 6, 23, 0.64);
+  color: #f8fafc;
+  padding: 0.9rem 1rem;
+  outline: none;
+}
+
+.application-form-card textarea {
+  resize: vertical;
+}
+
+@media (max-width: 760px) {
+  .form-grid-two {
+    grid-template-columns: 1fr;
+  }
+}

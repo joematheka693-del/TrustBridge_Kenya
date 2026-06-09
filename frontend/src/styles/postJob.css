@@ -1,0 +1,133 @@
+.post-job-page {
+  padding-bottom: 4rem;
+}
+
+.post-job-header {
+  padding: 3rem 0 1.5rem;
+}
+
+.post-job-header h1 {
+  color: #ffffff;
+  font-size: clamp(2rem, 4vw, 3.5rem);
+}
+
+.post-job-header p {
+  color: #b9cce2;
+  max-width: 720px;
+}
+
+.post-job-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 360px;
+  gap: 1.2rem;
+}
+
+.post-job-form,
+.post-job-rules-card {
+  background: rgba(7, 17, 35, 0.94);
+  border: 1px solid rgba(93, 188, 252, 0.18);
+  border-radius: 28px;
+  padding: 1.4rem;
+  color: #d9e8f7;
+}
+
+.form-section-title {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #7dd3fc;
+  font-weight: 900;
+  margin-bottom: 1rem;
+}
+
+.post-job-form label {
+  display: grid;
+  gap: 0.45rem;
+  color: #d9e8f7;
+  font-weight: 800;
+  margin-bottom: 1rem;
+}
+
+.post-job-form input,
+.post-job-form select,
+.post-job-form textarea {
+  width: 100%;
+  border: 1px solid rgba(125, 211, 252, 0.18);
+  background: rgba(255, 255, 255, 0.06);
+  color: #f7fbff;
+  border-radius: 16px;
+  padding: 0.9rem 1rem;
+  outline: 0;
+}
+
+.post-job-form select option {
+  background: #071123;
+  color: #f7fbff;
+}
+
+.post-job-form textarea {
+  min-height: 160px;
+  resize: vertical;
+}
+
+.post-job-two-col {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.post-job-submit {
+  border: 0;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #38bdf8, #2563eb);
+  color: #ffffff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  font-weight: 900;
+  padding: 0.85rem 1.2rem;
+}
+
+.post-job-rules-card h2 {
+  color: #ffffff;
+}
+
+.post-job-rules-card p,
+.post-job-rules-card li {
+  color: #b9cce2;
+  line-height: 1.65;
+}
+
+.post-job-rules-card ul {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  gap: 0.7rem;
+}
+
+.post-job-rules-card li {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.post-job-rules-card li svg {
+  color: #7dd3fc;
+  flex: 0 0 auto;
+  margin-top: 0.25rem;
+}
+
+.post-job-message {
+  border-radius: 18px;
+  background: rgba(46, 144, 250, 0.1);
+  border: 1px solid rgba(46, 144, 250, 0.2);
+  padding: 0.9rem;
+  color: #c8e8ff;
+}
+
+@media (max-width: 900px) {
+  .post-job-grid,
+  .post-job-two-col {
+    grid-template-columns: 1fr;
+  }
+}

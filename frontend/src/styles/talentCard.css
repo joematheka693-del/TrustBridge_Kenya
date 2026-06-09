@@ -1,0 +1,132 @@
+.talent-card {
+  padding: 22px;
+  border-radius: 24px;
+  border: 1px solid rgba(91, 141, 239, 0.18);
+  background: linear-gradient(145deg, rgba(14, 32, 60, 0.95), rgba(7, 18, 35, 0.98));
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.2);
+}
+
+.talent-card-top {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 18px;
+}
+
+.talent-category-pill {
+  display: inline-flex;
+  width: fit-content;
+  padding: 7px 11px;
+  border-radius: 999px;
+  color: #9ec3ff;
+  background: rgba(91, 141, 239, 0.12);
+  border: 1px solid rgba(91, 141, 239, 0.2);
+  font-size: 0.78rem;
+  font-weight: 800;
+}
+
+.talent-card h3 {
+  margin: 12px 0 8px;
+  color: #f8fbff;
+}
+
+.talent-card p {
+  color: #aec0dc;
+  line-height: 1.65;
+}
+
+.talent-score-badge {
+  width: 78px;
+  height: 78px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 22px;
+  background: rgba(71, 199, 255, 0.09);
+  border: 1px solid rgba(71, 199, 255, 0.24);
+  color: #dff4ff;
+}
+
+.talent-score-badge strong {
+  font-size: 1.4rem;
+  line-height: 1;
+}
+
+.talent-score-badge span {
+  font-size: 0.72rem;
+  color: #9db3cf;
+}
+
+.talent-meta-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+  margin: 18px 0;
+}
+
+.talent-meta-grid span {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 10px;
+  border-radius: 14px;
+  color: #c4d5ef;
+  background: rgba(255, 255, 255, 0.045);
+}
+
+.talent-skill-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.talent-skill-list span {
+  padding: 7px 10px;
+  border-radius: 999px;
+  color: #cfe3ff;
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.talent-card-footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  align-items: center;
+  margin-top: 22px;
+  padding-top: 18px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.talent-card-footer small {
+  display: block;
+  color: #8fa3c0;
+}
+
+.talent-card-footer strong {
+  color: #f8fbff;
+}
+
+.talent-card-btn {
+  border-radius: 14px;
+  color: #06111f;
+  background: #9ec3ff;
+  font-weight: 800;
+}
+
+.talent-card-btn:hover {
+  background: #ffffff;
+  color: #06111f;
+}
+
+@media (max-width: 575px) {
+  .talent-card-top,
+  .talent-card-footer {
+    grid-template-columns: 1fr;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .talent-meta-grid {
+    grid-template-columns: 1fr;
+  }
+}
